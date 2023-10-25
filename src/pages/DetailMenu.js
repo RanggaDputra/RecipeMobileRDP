@@ -157,15 +157,15 @@ function DetailMenu({ navigation }) {
 
   return (
     <View>
-      <Text style={{ textAlign: 'center', fontSize: 30, color: '#EFC81A', marginTop: 40, marginBottom: 20 }}>ADD YOUR RECIPE</Text>
+      <Text style={{ textAlign: 'center', fontSize: 30, color: '#EFC81A', marginTop: 40, marginBottom: 20 }}>UPDATE YOUR RECIPE</Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input,{color:'black'}]}
         onChangeText={(text) => setInputData({ ...inputData, title: text })}
         value={inputData.title}
         placeholder="Title"
       />
       <TextInput
-        style={[styles.input, { height: 100 }]}
+        style={[styles.input, { height: 100,color:'black' }]}
         multiline
         onChangeText={(text) => setInputData({ ...inputData, ingredients: text })}
         value={inputData.ingredients}
@@ -189,7 +189,7 @@ function DetailMenu({ navigation }) {
 
       {/* Input untuk Category */}
       <TextInput
-        style={styles.input}
+        style={[styles.input,{color:'black'}]}
         onChangeText={(text) => setInputData({ ...inputData, category_id: text })}
         value={inputData.category_id}
         placeholder="Category"
@@ -200,7 +200,7 @@ function DetailMenu({ navigation }) {
         onPress={uploadRecipe}
         disabled={!photo} // Disable jika tidak ada foto yang dipilih
       >
-        <Text style={styles.buttonText}>Create Post</Text>
+        <Text style={styles.buttonText}>Update Post</Text>
       </TouchableOpacity>
     </View>
   );

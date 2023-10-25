@@ -58,17 +58,21 @@ function Detail({ }) {
                     <Image
               source={{ uri: data.photo }} // Ubah ini sesuai dengan format sumber gambar Anda
               style={{
-                width: 420,
-                height: 250,
+                width: 220,
+                height: 150,
+                marginTop: 30,
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 borderRadius: 10,
                 marginBottom: 50,
               }}
             />
-                    <Text>Nama Menu: {data.title}</Text>
-                    <Text>Ingredients: {data.ingredients}</Text>
-                    {/* Tambahkan lebih banyak Text sesuai dengan data yang ingin ditampilkan */}
+            <View style={{marginLeft:50}}>
+
+                    <Text style={{color:'black'}}>Nama Menu: {data.title}</Text>
+                    <Text style={{color:'black'}}>Ingredients: {data.ingredients}</Text>
+            </View>
+                  
                 </View>
             )}
         </View>

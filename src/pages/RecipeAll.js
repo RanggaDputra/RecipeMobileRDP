@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet, Dimensions
 import { useDispatch, useSelector } from 'react-redux';
 import { getMenu } from "../storages/actions/menu";
 import axios from "axios";
+import { Plane } from 'react-native-animated-spinkit'
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 
@@ -66,8 +67,17 @@ function RecipeAll({ navigation }) {
 
   return (
     <ScrollView>
+      <View>
+        <Text style={{color:'black',fontSize:20,marginLeft:'auto',marginRight:'auto',marginTop:20,color:'#EFC81A'}}>
+      Temukan Recipe yang anda inginkan
+        </Text>
+        </View>
       {isLoading ? (
-        <Text>Loading...</Text>
+        <View style={{justifyContent:'center',
+        alignItems:'center',marginTop:100}}>
+
+          <Plane size={48} color="black" />
+        </View>
       ) : (
         menuData.map((item, index) => (
           <TouchableOpacity
@@ -87,13 +97,12 @@ function RecipeAll({ navigation }) {
                 marginBottom:-40
               }}
             />
-            <View >
+            <View style={{marginBottom:30}} >
 
-            <Text style={{textAlign: 'right',marginTop:-60,marginRight:170}}>Menu</Text>
-            <Text style={{textAlign: 'left',marginLeft:205}}>{item.title}</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('DetailMenu', { itemId: item.id })}><Text style={{textAlign: 'right',marginRight:160}}>Update</Text></TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Detail', { itemId: item.id })}><Text style={{textAlign: 'right',marginRight:123}}>Detail Recipe</Text></TouchableOpacity>
-            <TouchableOpacity onPress={() => dispatch(deleteMenu(item.id, navigation))}><Text style={{textAlign: 'right',marginRight:123}}>Delete</Text></TouchableOpacity>
+            <Text style={{textAlign: 'right',marginTop:-80,marginRight:170,color:'black',fontWeight:'bold',marginBottom:20}}>Menu</Text>
+            <Text style={{textAlign: 'left',marginLeft:205,color:'black'}}>{item.title}</Text>
+            <Text style={{textAlign: 'left',marginLeft:205,color:'black',marginBottom:20}}>{item.author}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Detail', { itemId: item.id })}><Text style={{textAlign: 'right',marginRight:123,color:'black'}}>Detail Recipe</Text></TouchableOpacity>
             </View>
           </TouchableOpacity>
         ))

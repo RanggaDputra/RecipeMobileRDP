@@ -10,6 +10,7 @@ import { logout, postlogin } from '../storages/actions/auth';
 // import AddRecipe from '../pages/add-recipe';
 import { Fumi } from 'react-native-textinput-effects';
 import { Button } from '@rneui/themed';
+import { Plane } from 'react-native-animated-spinkit'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
 
@@ -47,8 +48,8 @@ function Login({ navigation }) {
           }}
         />
       </View>
-      <Text style={{ textAlign: 'center', fontSize: 30, color: '#EFC81A' }}>Welcome !</Text>
-      <Text style={{ textAlign: 'center', fontSize: 20, marginBottom: 30 }}>Log in to your existing account</Text>
+      <Text style={{ textAlign: 'center', fontSize: 30, color: '#EFC81A',color:'black' }}>Welcome !</Text>
+      <Text style={{ textAlign: 'center', fontSize: 20, marginBottom: 30,color:'black' }}>Log in to your existing account</Text>
         <Fumi
           // onChange={onChange}  
           onChangeText={text => setInputData({...inputData, email: text})}    
@@ -95,10 +96,10 @@ function Login({ navigation }) {
         onPress={postData}
         // onPress={() => navigation.navigate('MyTabs')}
       />
-      <Text>{login.isLoading && "...loading"}</Text>
-      <Text>{login.messageError && login.messageError}</Text>
-      <Text style={{ textAlign: 'center', marginVertical: 20, marginRight: 15, fontSize: 15 }}>
-        Don’t have an account?<TouchableOpacity onPress={() => navigation.navigate('Register')}><Text>Sign Up</Text></TouchableOpacity></Text>
+      <Text>{login.isLoading &&  <Plane size={48} color="black"/>}</Text>
+      {/* <Text>{login.messageError && login.messageError}</Text> */}
+      <Text style={{ textAlign: 'center', marginVertical: 20, marginRight: 15, fontSize: 15,color:'black' }}>
+        Don’t have an account?<TouchableOpacity onPress={() => navigation.navigate('Register')}><Text style={{color:'black'}}>Sign Up</Text></TouchableOpacity></Text>
     </View>
   );
 }

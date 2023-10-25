@@ -21,7 +21,7 @@ const menu = (state = initialState, { action,type, payload }) => {
                 isLoading: false,
                 isError: false,
                 isSuccess: true,
-                data: action.payload
+                data: payload
             }
         case "GET_MENU_ERROR":
             return {

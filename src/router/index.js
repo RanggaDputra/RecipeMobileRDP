@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, Text,TouchableOpacity,Image,ScrollView,StyleSheet,Dimensions} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -13,7 +13,7 @@ import { Button } from '@rneui/themed';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
 import {BackgroundImage,Input,Icon} from '@rneui/base';
-import Toast from 'react-native-toast-message';
+import { Plane } from 'react-native-animated-spinkit'
 import Login from '../pages/login'
 import Register from '../pages/register'
 import HomeScreen from '../pages/home'
@@ -24,23 +24,25 @@ import DetailsScreen from '../pages/DetailScreen';
 import DetailMenu from '../pages/DetailMenu';
 import Detail from '../pages/detail';
 import SplashScreen from '../pages/SplashScreen';
+import Profile from '../pages/Profile';
+import Search from '../pages/Search';
 
 const screenWidth = Dimensions.get('window').width;
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function MyTabs({}){
+  
+  const [isLoading, setIsLoading] = useState(true);
   return (
-    <Tab.Navigator screenOptions={{headerShown:false}} >
-      <Tab.Screen name="Home" component={HomeScreen} options={{
-        tabBarIcon: ()=> (<Ionicons name='home' size={30}/>)
-      }}/>
-      <Tab.Screen name="addRecipe" component={AddRecipe} options={{
-        tabBarIcon: ()=> (<Ionicons name='add-outline' size={30}/>)
-      }}/>
-      <Tab.Screen name="DetailsScreen" component={DetailsScreen} options={{
-        tabBarIcon: ()=> (<Ionicons name='apps-outline' size={30}/>)
-      }}/>
+    <Tab.Navigator screenOptions={{headerShown:false}} style={{display:'none'}} >
+        <Tab.Screen  name="Home" component={HomeScreen} options={{
+          tabBarIcon: ()=> (<Ionicons style={{color:"black"}} name='home' size={30}/>)
+        }}/>
+        <Tab.Screen name="DetailsScreen" component={DetailsScreen} options={{
+          tabBarIcon: ()=> (<Ionicons style={{color:"black"}} name='apps-outline' size={30}/>)
+        }}/>
+
     </Tab.Navigator>
   );
 }
@@ -51,7 +53,7 @@ function Router() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='SplashScreen'>
+      <Stack.Navigator>
         {login.data ? (
           <Stack.Screen
             name="MyTabs"
@@ -62,7 +64,7 @@ function Router() {
           <Stack.Screen
             name="Login"
             component={Login}
-            options={{ title: 'Login' }}
+            options={{ headerShown: false }}
           />
         )}
         <Stack.Screen
@@ -71,13 +73,24 @@ function Router() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
+          name="DetailsScreen"
+          component={DetailsScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="MyRecipe"
           component={MyRecipe}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="DetailMenu"
@@ -92,15 +105,17 @@ function Router() {
         <Stack.Screen
           name="Register"
           component={Register}
-          options={{ title: 'Register' }}
+          options={{ title: 'Register',headerShown: false }}
         />
         <Stack.Screen
           name="AddRecipe"
           component={AddRecipe}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="RecipeAll"
           component={RecipeAll}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

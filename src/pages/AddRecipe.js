@@ -129,13 +129,13 @@ const galleryLaunch = () => {
     <View>
       <Text style={{ textAlign: 'center', fontSize: 30, color: '#EFC81A', marginTop: 40, marginBottom: 20 }}>ADD YOUR RECIPE</Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input,{color:'black'}]}
         onChangeText={(text) => setInputData({ ...inputData, title: text })}
         value={inputData.title}
         placeholder="Title"
       />
       <TextInput
-        style={[styles.input, { height: 100 }]}
+        style={[styles.input, { height: 100,color:'black' }]}
         multiline
         onChangeText={(text) => setInputData({ ...inputData, ingredients: text })}
         value={inputData.ingredients}
@@ -144,19 +144,19 @@ const galleryLaunch = () => {
       
 
       <TouchableOpacity onPress={()=>requestPermission()}>
-        <Text>Take Foto</Text>
+        <Text style={{color:'black'}}>Take Foto</Text>
     </TouchableOpacity>
     <TouchableOpacity onPress={()=>galleryLaunch()}>
-        <Text>Gallery Foto</Text>
+        <Text style={{color:'black'}}>Gallery Foto</Text>
     </TouchableOpacity>
     {photo && 
-    <Image resizeMode='cover' style={{height:200,width:200}} source={{uri:photo.uri}} />
+    <Image resizeMode='cover' style={{height:200,width:200,marginHorizontal:90}} source={{uri:photo.uri}} />
     }
 
       
       {/* Input untuk Category */}
       <TextInput
-        style={styles.input}
+        style={[styles.input,{color:'black'}]}
         onChangeText={(text) => setInputData({ ...inputData, category_id: text })}
         value={inputData.category_id}
         placeholder="Category"

@@ -83,126 +83,19 @@ function DetailsScreen() {
             }}>
             {data.username}
           </Text>
+          <Text
+            style={{
+              fontSize: 25,
+              fontWeight: '800',
+              color: 'white',
+              marginTop: 10,
+              marginBottom: 20,
+            }}>
+            {data.email}
+          </Text>
         </View>
          )}
-        <View style={styles.cover}>
-          <View style={styles.bar}>
-            <View style={styles.barLeft}>
-              <Icon
-                marginLeft={20}
-                marginRight={20}
-                type="feather"
-                name="user"
-                size={35}
-                color="rgba(239, 200, 26, 1)"
-              />
-              <Text style={{color: 'rgba(0, 0, 0, 0.70);', fontSize: 20}} onPress={() => navigation.navigate('Profile')}>
-                Edit Profile
-              </Text>
-            </View>
-            <View style={styles.barRight}>
-              <Icon
-                marginRight={20}
-                type="feather"
-                name="chevron-right"
-                size={35}
-                color="#8C8C8C"
-              />
-            </View>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('MyRecipe')}>
-          <View style={styles.bar}>
-            <View style={styles.barLeft}>
-              <Icon
-                marginLeft={20}
-                marginRight={20}
-                type="feather"
-                name="award"
-                size={35}
-                color="rgba(239, 200, 26, 1)"
-              />
-              <Text style={{color: 'rgba(0, 0, 0, 0.70);', fontSize: 20}}>
-                My Recipe
-              </Text>
-            </View>
-            <View style={styles.barRight}>
-              <Icon
-                marginRight={20}
-                type="feather"
-                name="chevron-right"
-                size={35}
-                color="#8C8C8C"
-              />
-            </View>
-          </View>
-          </TouchableOpacity>
-          <View style={styles.bar}>
-            <View style={styles.barLeft}>
-              <Icon
-                marginLeft={20}
-                marginRight={20}
-                type="feather"
-                name="bookmark"
-                size={35}
-                color="rgba(239, 200, 26, 1)"
-              />
-              <Text style={{color: 'rgba(0, 0, 0, 0.70);', fontSize: 20}}>
-                Saved Recipe
-              </Text>
-            </View>
-            <View style={styles.barRight}>
-              <Icon
-                marginRight={20}
-                type="feather"
-                name="chevron-right"
-                size={35}
-                color="#8C8C8C"
-              />
-            </View>
-          </View>
-          <View style={styles.bar}>
-            <View style={styles.barLeft}>
-              <Icon
-                marginLeft={20}
-                marginRight={20}
-                type="feather"
-                name="thumbs-up"
-                size={35}
-                color="rgba(239, 200, 26, 1)"
-              />
-              <Text style={{color: 'rgba(0, 0, 0, 0.70);', fontSize: 20}}>
-                Liked Recipe
-              </Text>
-            </View>
-            <View style={styles.barRight}>
-              <Icon
-                marginRight={20}
-                type="feather"
-                name="chevron-right"
-                size={35}
-                color="#8C8C8C"
-              />
-            </View>
-          </View>
-          <View style={styles.bar}>
-            <View style={styles.barLeft}>
-              <Icon
-                marginLeft={20}
-                marginRight={20}
-                type="feather"
-                name="log-out"
-                size={35}
-                color="#ff6666"
-              />
-              <Text
-                style={{color: '#ff6666', fontSize: 20}}
-                onPress={handleLogout}>
-                Logout
-              </Text>
-            </View>
-            <View style={styles.barRight}></View>
-          </View>
-        </View>
+
         <Toast />
       </View>
     );
