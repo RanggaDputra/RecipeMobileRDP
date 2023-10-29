@@ -35,9 +35,12 @@ function MyTabs({}){
   
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <Tab.Navigator screenOptions={{headerShown:false}} style={{display:'none'}} >
+    <Tab.Navigator screenOptions={{headerShown:false}} style={{}} >
         <Tab.Screen  name="Home" component={HomeScreen} options={{
           tabBarIcon: ()=> (<Ionicons style={{color:"black"}} name='home' size={30}/>)
+        }}/>
+        <Tab.Screen  name="AddRecipe" component={AddRecipe} options={{
+          tabBarIcon: ()=> (<Ionicons style={{color:"black"}} name='add-outline' size={30}/>)
         }}/>
         <Tab.Screen name="DetailsScreen" component={DetailsScreen} options={{
           tabBarIcon: ()=> (<Ionicons style={{color:"black"}} name='apps-outline' size={30}/>)

@@ -96,7 +96,7 @@ function Login({ navigation }) {
         onPress={postData}
         // onPress={() => navigation.navigate('MyTabs')}
       />
-      <Text>{login.isLoading &&  <Plane size={48} color="black"/>}</Text>
+      <Text style={{marginLeft:170,marginTop:50}}>{login.isLoading &&  <Plane size={48}  color="black"/>}</Text>
       {/* <Text>{login.messageError && login.messageError}</Text> */}
       <Text style={{ textAlign: 'center', marginVertical: 20, marginRight: 15, fontSize: 15,color:'black' }}>
         Don’t have an account?<TouchableOpacity onPress={() => navigation.navigate('Register')}><Text style={{color:'black'}}>Sign Up</Text></TouchableOpacity></Text>
